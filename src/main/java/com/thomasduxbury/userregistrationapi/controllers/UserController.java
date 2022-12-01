@@ -17,25 +17,21 @@ public class UserController {
     this.userRepository = userRepository;
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
   @PostMapping("/users")
   public void saveUser(@Valid @RequestBody User user) {
     userRepository.save(user);
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/users")
   public List<User> getUsers() {
     return userRepository.findAll();
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/users/{id}")
   public User getUser(@PathVariable Long id) {
     return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
   }
 
-  @CrossOrigin(origins = "http://127.0.0.1:3000")
   @DeleteMapping("/users/{id}")
   void deleteUser(@PathVariable Long id) {
     userRepository.deleteById(id);
