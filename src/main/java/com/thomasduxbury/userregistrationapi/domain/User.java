@@ -18,7 +18,7 @@ public class User {
 
   @Pattern(regexp = "(^$)|^([A-Z][A-HJ-Y]?\\d[A-Z\\d]? ?\\d[A-Z]{2}|GIR ?0A{2})$")
   private String postcode;
-  @NotBlank(message = "Password is mandatory")
+  @NotBlank(message = "Password is mandatory and must contain a minimum of eight characters, at least one uppercase letter, one lowercase letter and one number.")
   @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\w\\W]{8,}$")
   private String password;
 
